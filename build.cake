@@ -1,3 +1,5 @@
+#tool nuget:?package=WiX&version=3.11
+
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -29,11 +31,19 @@ Task("Build")
   MSBuild(solutionFile, settings => settings.SetConfiguration(configuration));
 });
 
+Task("Installer")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+  var installerProjectFile = File("./Installer/WpfAppSetup/WpfAppSetup.wixproj");
+  MSBuild(installerProjectFile, settings => settings.SetConfiguration(configuration));
+});
+
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Build");
+    .IsDependentOn("Installer");
 
 RunTarget(target);
