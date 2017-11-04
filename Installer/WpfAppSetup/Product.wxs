@@ -9,7 +9,9 @@
 
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="WpfApp" />
+				<Directory Id="ManufacturerFolder" Name="[ProductManufacturer]">
+					<Directory Id="INSTALLFOLDER" Name="WpfApp" />
+				</Directory>
 			</Directory>
 		</Directory>
 
