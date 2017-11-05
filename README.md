@@ -14,7 +14,7 @@ Experimentation with WiX - a software toolset that builds Windows Installer pack
 ### CI/CD Pipeline Integration ###
 
 #### Auto Harvesting ####
-When your project contains many files to install, it can be quite cumbersome to create `File` and `Component` elements for all of them. Just imagine 
+When your project contains many files to install, it can be quite cumbersome to create `File` and `Component` elements for all of them. 
 
 Instead, you can use a tool called `heat.exe`, wich ships with the WiX toolset. This tool can process a directory (usually it will be your build output directory) and create a separate .wxs file that contains a list of your application files. This file can be then refernced by your main Product.wxs script.
 
